@@ -1,5 +1,3 @@
-from __future__ import division, print_function
-
 __author__ = "adrn <adrn@astro.columbia.edu>"
 
 # Standard library
@@ -71,7 +69,7 @@ def test_integrate():
     wvln = np.linspace(1000., 4000., 1024)
 
     flux = np.zeros_like(wvln)
-    flux[subslice] = 1/np.ptp(wvln[subslice]) # so the integral is 1
+    flux[subslice] = 1./np.ptp(wvln[subslice]) # so the integral is 1
 
     s = Spectrum(wvln*u.angstrom, flux*u.erg/u.cm**2/u.angstrom)
 
