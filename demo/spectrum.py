@@ -22,11 +22,11 @@ class Spectrum(object):
     """
     def __init__(self, wavelength, flux):
 
-        if np.any(wavelength < 0.):
-            raise ValueError("Wavelength values < 0 are not valid.")
-
         self.wavelength = u.Quantity(wavelength)
         self.flux = u.Quantity(flux)
+
+        if np.any(self.wavelength < 0.):
+            raise ValueError("Wavelength values < 0 are not valid.")
 
         if self.wavelength.shape != self.flux.shape:
             raise ValueError("Shape of wavelength array must match shape"
